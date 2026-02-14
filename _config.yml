@@ -1,0 +1,7 @@
+theme: null
+plugins: []
+include:
+  - index.html
+  - css
+  - js
+  - img
