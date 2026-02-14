@@ -1,7 +1,5 @@
-theme: null
-plugins: []
-include:
-  - index.html
-  - css
-  - js
-  - img
+title: Eunji Kong
+description: Postdoctoral Research Scientist at Columbia University
+exclude:
+  - website
+  - README.md
