@@ -81,7 +81,7 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--white);
-  font-size: 4.5rem;
+  font-size: 3.4rem;
   letter-spacing: 4px;
   text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.3);
   margin: 0;
@@ -125,7 +125,7 @@ header nav {
 
 header .logo {
   color: var(--white);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
   letter-spacing: 0.5px;
@@ -147,7 +147,7 @@ header .logo:hover {
 .nav-menu a {
   color: rgba(255,255,255,0.85);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 600;
   transition: var(--transition);
   padding: 0.25rem 0;
@@ -187,6 +187,15 @@ header .logo:hover {
 .main-content {
   flex: 1;
   min-width: 0;
+}
+
+/* Keep long-form content cleanly aligned without affecting nav/header text */
+.main-content p,
+.main-content li,
+.main-content .pub-item {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .right-sidebar {
@@ -291,6 +300,10 @@ section {
   margin-bottom: 2.5rem;
 }
 
+section[id] {
+  scroll-margin-top: 88px;
+}
+
 section h2 {
   scroll-margin-top: 100px;
 }
@@ -305,18 +318,78 @@ section h2 {
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--primary-color);
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 0.45rem;
 }
 
 .pub-item {
-  margin-bottom: 1rem;
-  padding-left: 0.5rem;
+  margin-bottom: 0.7rem;
+  padding-left: 2.9rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  position: relative;
+}
+
+.pub-item.pub-no-index {
+  padding-left: 0;
+}
+
+.pub-item strong {
+  color: var(--text-dark);
+}
+
+.pub-index {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.4rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+
+.pub-artwork {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.pub-artwork.pub-artwork-social {
+  grid-template-columns: 260px 1fr;
+}
+
+.pub-cover {
+  margin-top: 0;
+}
+
+.pub-cover img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.pub-cover img.social-llm-cover {
+  max-width: 260px;
+}
+
+.pub-art-description {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: var(--text-light);
 }
 
-.pub-item strong {
+.pub-art-credit {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-size: 0.92rem;
   color: var(--text-dark);
 }
 
@@ -358,6 +431,127 @@ section h2 {
   left: 0;
   color: var(--primary-color);
   font-weight: bold;
+}
+
+/* Awards list uses a year | detail layout */
+#awards-section .awards-list li {
+  padding-left: 0;
+  margin-bottom: 0.95rem;
+  display: grid;
+  grid-template-columns: 8.2rem 1fr;
+  gap: 0.48rem;
+  align-items: start;
+  text-align: left;
+}
+
+#awards-section .awards-list li::before {
+  content: none;
+}
+
+#awards-section .award-year {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+#awards-section .award-year::after {
+  content: "";
+}
+
+#awards-section .award-sep {
+  display: none;
+}
+
+#awards-section .award-detail {
+  color: var(--text-dark);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Teaching & Outreach list uses year-left + title/details layout */
+#teaching-section .teaching-list li {
+  padding-left: 0;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 8.2rem 1fr;
+  column-gap: 0.48rem;
+  row-gap: 0;
+  align-items: start;
+  text-align: left;
+}
+
+#teaching-section .teaching-list li::before {
+  content: none;
+}
+
+#teaching-section .teaching-year {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+#teaching-section .teaching-main {
+  color: var(--text-dark);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+#teaching-section .teaching-detail {
+  grid-column: 2;
+  color: var(--text-dark);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  margin-top: 0;
+}
+
+#teaching-section .teaching-feature {
+  grid-column: 2;
+}
+
+#teaching-section .teaching-feature.teaching-feature-brainyac,
+#teaching-section .teaching-feature.teaching-feature-saturdayscience {
+  display: grid;
+  grid-template-columns: minmax(190px, 240px) 1fr;
+  column-gap: 0.9rem;
+  align-items: start;
+}
+
+#teaching-section .teaching-feature.teaching-feature-brainyac .teaching-detail,
+#teaching-section .teaching-feature.teaching-feature-saturdayscience .teaching-detail {
+  grid-column: auto;
+  order: 2;
+}
+
+#teaching-section .teaching-media {
+  grid-column: auto;
+  order: 1;
+  margin-top: 0;
+}
+
+#teaching-section .teaching-media img {
+  display: block;
+  width: min(100%, 240px);
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+#teaching-section .teaching-photo-credit {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: left;
+}
+
+#teaching-section .teaching-photo-credit-inline {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--text-dark);
+  text-align: left;
+  text-justify: auto;
 }
 
 /* News section */
@@ -523,6 +717,52 @@ footer a:hover {
   
   .pub-item {
     font-size: 0.9rem;
+  }
+
+  .pub-artwork {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .pub-cover img {
+    max-width: 180px;
+  }
+
+  .pub-cover img.social-llm-cover {
+    max-width: 210px;
+  }
+
+  .pub-art-description,
+  .pub-art-credit {
+    font-size: 0.9rem;
+  }
+
+  #awards-section .awards-list li {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  #teaching-section .teaching-list li {
+    grid-template-columns: 1fr;
+    row-gap: 0.2rem;
+  }
+
+  #teaching-section .teaching-detail {
+    grid-column: 1;
+  }
+
+  #teaching-section .teaching-feature {
+    grid-column: 1;
+  }
+
+  #teaching-section .teaching-feature.teaching-feature-brainyac,
+  #teaching-section .teaching-feature.teaching-feature-saturdayscience {
+    grid-template-columns: 1fr;
+    row-gap: 0.35rem;
+  }
+
+  #teaching-section .teaching-media {
+    grid-column: 1;
   }
 }
 
