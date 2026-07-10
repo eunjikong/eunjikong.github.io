@@ -661,10 +661,7 @@ footer a:hover {
   }
   
   .right-sidebar {
-    width: 100% !important;
-    position: relative !important;
-    top: auto !important;
-    order: -1;
+    display: none !important;
   }
   
   .right-sidebar .nav-links {
@@ -684,11 +681,7 @@ footer a:hover {
   h2 { font-size: 1.25rem; }
 
   .banner-name {
-    font-size: 2.05rem;
-    letter-spacing: 2px;
-    white-space: normal;
-    text-align: center;
-    width: calc(100% - 2rem);
+    display: none;
   }
 
   .container {
@@ -729,9 +722,14 @@ footer a:hover {
   }
   
   .left-sidebar {
+    order: 2;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center;
+  }
+
+  .main-content {
+    order: 1;
   }
   
   .left-sidebar .profile-photo {
@@ -746,6 +744,10 @@ footer a:hover {
   .pub-artwork {
     grid-template-columns: 1fr;
     gap: 0.75rem;
+  }
+
+  .pub-artwork.pub-artwork-social {
+    grid-template-columns: 1fr;
   }
 
   .pub-cover img {
