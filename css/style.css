@@ -680,6 +680,14 @@ footer a:hover {
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.25rem; }
 
+  section[id] {
+    scroll-margin-top: 112px;
+  }
+
+  section h2 {
+    scroll-margin-top: 124px;
+  }
+
   .banner-name {
     display: none;
   }
@@ -722,7 +730,7 @@ footer a:hover {
   }
   
   .left-sidebar {
-    order: 2;
+    order: 0;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center;
