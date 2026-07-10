@@ -105,8 +105,19 @@ header {
 }
 
 header.scrolled {
-  background-color: var(--primary-color);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background-color: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+header.scrolled .logo,
+header.scrolled .nav-menu a,
+header.scrolled .hamburger {
+  color: var(--text-dark);
+}
+
+header.scrolled .nav-menu a:hover,
+header.scrolled .nav-menu a.active {
+  color: var(--secondary-color);
 }
 
 /* Pull banner up behind the header */
@@ -211,7 +222,7 @@ header .logo:hover {
   width: 100%;
   max-width: 280px;
   border-radius: 50%;
-  border: 4px solid var(--primary-color);
+  border: none;
   margin-bottom: 2rem;
 }
 
@@ -225,7 +236,7 @@ header .logo:hover {
 .intro-text {
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--text-light);
+  color: var(--text-dark);
   margin-bottom: 1.5rem;
 }
 
@@ -326,7 +337,7 @@ section h2 {
   margin-bottom: 0.7rem;
   padding-left: 2.9rem;
   line-height: 1.6;
-  color: var(--text-light);
+  color: var(--text-dark);
   position: relative;
 }
 
@@ -343,7 +354,7 @@ section h2 {
   left: 0;
   top: 0;
   width: 2.4rem;
-  color: var(--text-light);
+  color: var(--text-dark);
   font-weight: 400;
 }
 
@@ -383,7 +394,7 @@ section h2 {
   margin-bottom: 0;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 .pub-art-credit {
@@ -542,7 +553,7 @@ section h2 {
   margin-top: 0.35rem;
   margin-bottom: 0;
   font-size: 0.9rem;
-  color: var(--text-light);
+  color: var(--text-dark);
   text-align: left;
 }
 
