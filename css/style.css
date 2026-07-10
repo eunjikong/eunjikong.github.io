@@ -81,8 +81,8 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--white);
-  font-size: 2.8rem;
-  letter-spacing: 4px;
+  font-size: clamp(2rem, 5.8vw, 2.8rem);
+  letter-spacing: 3px;
   text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.3);
   margin: 0;
   padding: 0;
@@ -682,6 +682,30 @@ footer a:hover {
 @media (max-width: 768px) {
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.25rem; }
+
+  .banner-name {
+    font-size: 2.05rem;
+    letter-spacing: 2px;
+    white-space: normal;
+    text-align: center;
+    width: calc(100% - 2rem);
+  }
+
+  .container {
+    padding: 1rem !important;
+  }
+
+  .main-content p,
+  .main-content li,
+  .main-content .pub-item {
+    text-align: left;
+    text-justify: auto;
+    hyphens: none;
+  }
+
+  .right-sidebar {
+    display: none !important;
+  }
   
   .hamburger {
     display: block;
@@ -771,8 +795,25 @@ footer a:hover {
   h1 { font-size: 1.5rem; }
   h2 { font-size: 1.15rem; }
 
+  .banner-name {
+    font-size: 1.7rem;
+    letter-spacing: 1.2px;
+  }
+
   .container {
     padding: 0.75rem !important;
+  }
+
+  .pub-cover img {
+    max-width: 150px;
+  }
+
+  .pub-cover img.social-llm-cover {
+    max-width: 170px;
+  }
+
+  #teaching-section .teaching-media img {
+    width: min(100%, 200px);
   }
 }
 
