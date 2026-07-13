@@ -70,9 +70,11 @@ p {
 
 .header-banner img {
   width: 100%;
+  height: 500px;
   display: block;
   object-fit: cover;
   object-position: center;
+  filter: brightness(0.95);
 }
 
 .banner-name {
@@ -210,7 +212,7 @@ header .logo:hover {
 }
 
 .right-sidebar {
-  width: 280px;
+  width: 72px;
   flex-shrink: 0;
   position: sticky;
   top: 120px;
@@ -223,7 +225,7 @@ header .logo:hover {
   max-width: 280px;
   border-radius: 50%;
   border: none;
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
 }
 
 /* Intro Section */
@@ -233,11 +235,64 @@ header .logo:hover {
   color: var(--text-dark);
 }
 
+.intro-gif {
+  float: right;
+  width: min(100%, 340px);
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.intro-gif-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.intro-gif-overlay {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  left: auto;
+  max-width: 92%;
+  color: var(--white);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(0.49rem, 1.11vw, 0.81rem);
+  line-height: 1.2;
+  text-align: right;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.intro-gif-overlay p {
+  margin: 0;
+  text-align: right;
+  text-justify: auto;
+  hyphens: none;
+}
+
+@media (max-width: 700px) {
+  .intro-gif {
+    float: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin-left: 0;
+  }
+}
+
 .intro-text {
   font-size: 1rem;
   line-height: 1.8;
   color: var(--text-dark);
   margin-bottom: 1.5rem;
+}
+
+.intro-text-gap {
+  margin-top: 1rem;
 }
 
 .intro-text a {
@@ -246,38 +301,73 @@ header .logo:hover {
 
 /* Links Sidebar */
 .sidebar-links {
-  background: var(--light-bg);
-  border-radius: 8px;
-  padding: 1.5rem;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.sidebar-profile {
+  margin-bottom: 1rem;
+}
+
+.sidebar-profile p {
+  margin: 0;
+  color: var(--text-dark);
+  line-height: 1.45;
+}
+
+.sidebar-profile p + p {
+  margin-top: 0.18rem;
+}
+
+.sidebar-profile .sidebar-name {
+  margin-bottom: 0.3rem;
 }
 
 .sidebar-links h4 {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--text-light);
+  color: #7a7a7a;
   margin-bottom: 1rem;
 }
 
 .sidebar-links ul {
   list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .sidebar-links ul li {
   margin-bottom: 0.75rem;
 }
 
+.sidebar-links .sidebar-item,
 .sidebar-links ul li a {
-  color: var(--secondary-color);
-  font-weight: 600;
-  font-size: 0.95rem;
-  display: flex;
+  color: var(--text-dark);
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  font-size: 1rem;
 }
 
 .sidebar-links ul li a:hover {
   color: var(--accent-color);
+}
+
+.sidebar-links .sidebar-item i,
+.sidebar-links ul li a i {
+  color: #7a7a7a;
+  font-size: 1rem;
+  line-height: 1;
+  width: 1rem;
+  text-align: center;
+}
+
+.sidebar-links ul li a:hover i {
+  color: #6a6a6a;
 }
 
 /* Right sidebar nav links */
@@ -317,6 +407,43 @@ section[id] {
 
 section h2 {
   scroll-margin-top: 100px;
+}
+
+/* Research GIF block (matches Social LLM image width) */
+.research-gif-hero {
+  position: relative;
+  width: min(100%, 276px);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.15rem;
+}
+
+.research-gif-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.research-gif-text {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  left: auto;
+  max-width: 95%;
+  color: var(--white);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(0.38rem, 0.9vw, 0.68rem);
+  line-height: 1.2;
+  text-align: right;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.research-gif-text p {
+  margin: 0;
+  text-align: right;
+  text-justify: auto;
+  hyphens: none;
 }
 
 /* Publication List */
@@ -647,7 +774,7 @@ footer a:hover {
   }
   
   .right-sidebar {
-    width: 220px !important;
+    width: 64px !important;
   }
 }
 
@@ -809,6 +936,10 @@ footer a:hover {
   #teaching-section .teaching-media {
     grid-column: 1;
   }
+
+  .research-gif-text {
+    font-size: clamp(0.36rem, 1.58vw, 0.56rem);
+  }
 }
 
 @media (max-width: 480px) {
@@ -835,6 +966,10 @@ footer a:hover {
 
   #teaching-section .teaching-media img {
     width: min(100%, 200px);
+  }
+
+  .research-gif-text {
+    font-size: clamp(0.34rem, 2.16vw, 0.49rem);
   }
 }
 
